@@ -125,7 +125,7 @@ var interval = 10000;
 
 $(document).ready(function() {
 	var currentDate = new Date();
-	var futureDate  = new Date(currentDate.getFullYear() + 1, 0, 1);
+	var futureDate  = new Date(2021, 10, 11, 12, 0);
 	var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
 
 	clock = $clock.FlipClock(diff, {
@@ -148,7 +148,7 @@ $(document).ready(function() {
 function celebrate()
 {
 	$confetti.fadeIn();
-	
+
 	$clock.removeClass('animated flipInX');
 	$clock.addClass('animated flipOutX');
 
@@ -172,10 +172,10 @@ function pulse()
 function bounce()
 {
 	clearTimeout(timeout);
-	
+
 	$message.removeClass('animated bounce flipInX pulse rubberBand swing tada');
-	
-	setTimeout(function(){ 
+
+	setTimeout(function(){
 		$message.addClass('animated ' + animations[current_animation]);
 		current_animation++;
 		if(current_animation == animations.length)
@@ -183,6 +183,6 @@ function bounce()
 			current_animation = 0;
 		}
 	}, 100);
-	
+
 	timeout = setTimeout(bounce, interval);
 }
